@@ -6,7 +6,7 @@ function evalControl($control, $method)
         if (door($method) == 1) return 1;
     }
 
-    http_response_code(404);
+    //http_response_code(404);
 }
 
 function door($method){
@@ -68,10 +68,11 @@ function download($id){
 }
 
 $t = explode("/", $_SERVER['REQUEST_URI']);
-
-$control = $t[2];
-$method = explode("?", $t[3])[0];
+$cnt = count($t);
+$c = $cnt - 1;
+$control = $t[$cnt - 2];
+$meth = $t[$cnt - 1];
+$method = explode("?", $meth)[0];
 
 evalControl($control, $method);
-
 ?>

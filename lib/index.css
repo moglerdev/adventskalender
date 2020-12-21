@@ -1,12 +1,12 @@
-@import url("/lib/fonts/SourceSansPro-Regular.ttf");
+@import url("./fonts/SourceSansPro-Regular.ttf");
 @font-face {
   font-family: 'Nemo Nightmares';
-  src: url("/lib/fonts/nemo-nightmares.regular.ttf");
+  src: url("./fonts/nemo-nightmares.regular.ttf");
 }
 
 @font-face {
   font-family: 'CandyTime';
-  src: url("/lib/fonts/CandyTime.ttf");
+  src: url("./fonts/CandyTime.ttf");
 }
 
 /**

@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adventskalender</title>
-    <link href="/lib/index.css" rel="stylesheet" />
+    <link href="./lib/index.css" rel="stylesheet" />
 </head>
 <body>
     <div class="app">
@@ -49,7 +49,7 @@
                 <hr>
                 <h3>Bilder auswählen</h3>
                 <div class="pictures">
-
+                    
                 </div>
             </div>
             <div class="modal-foot">
@@ -63,23 +63,17 @@
     <script src="./lib/snow.js"></script>
     <script>
         const Adventskalender = new AdventsKalender();
+
         let cur_date = document.getElementsByClassName("cur_date");
         for (let i = 0; i < cur_date.length; i++) {
             const e = cur_date[i];
             e.innerText = (new Date()).getFullYear();
         }
         let m = document.getElementsByClassName("modal")[0];
+        
         const modal = new Modal(m);
 
         //const snow = new Snow();
     </script>
 </body>
 </html>
-
-<!--
-<div class="row">
-    <div class="col ave-item">
-        Tür <span>1</span>
-    </div>
-</div>
--->
