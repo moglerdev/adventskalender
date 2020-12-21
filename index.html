@@ -29,7 +29,6 @@
             <p>Handy: Lange mit dem Finger auf ein Türchen drücken, dann auf Bearbeiten.</p>
         </div>
         <hr />
-
         <p class="copy"><span class="cur_date"></span> &copy; Copyrights by [... hier Name]</p>
     </div>
     <div class="modal">
@@ -45,6 +44,13 @@
                     <button class="file-upload-btn">Upload</button>
                 </div>
                 <hr>
+                <h3>Aktuelles Bild</h3>
+                <img class="current-picture" id="modal_pic" />
+                <hr>
+                <h3>Bilder auswählen</h3>
+                <div class="pictures">
+
+                </div>
             </div>
             <div class="modal-foot">
             </div>
@@ -65,7 +71,7 @@
         let m = document.getElementsByClassName("modal")[0];
         const modal = new Modal(m);
 
-        const snow = new Snow();
+        //const snow = new Snow();
     </script>
 </body>
 </html>

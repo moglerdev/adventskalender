@@ -170,6 +170,10 @@ input {
     .modal-body, .modal-foot {
         padding-top: 15px;
     }
+
+    .current-picture {
+        max-height: 200px;
+    }
 }
 
 
@@ -277,4 +281,8 @@ input {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
     z-index: 20;
+}
+
+.pictures {
+
 }

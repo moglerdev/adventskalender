@@ -217,6 +217,10 @@ input {
   padding-top: 15px;
 }
 
+.modal .current-picture {
+  max-height: 200px;
+}
+
 .form-group {
   display: -webkit-box;
   display: -ms-flexbox;
