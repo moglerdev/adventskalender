@@ -1,0 +1,375 @@
+@import url("/lib/fonts/SourceSansPro-Regular.ttf");
+@font-face {
+  font-family: 'Nemo Nightmares';
+  src: url("/lib/fonts/nemo-nightmares.regular.ttf");
+}
+
+@font-face {
+  font-family: 'CandyTime';
+  src: url("/lib/fonts/CandyTime.ttf");
+}
+
+/**
+    Regular Konfig
+*/
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #354059;
+  color: #fff;
+  overflow: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
+}
+
+button {
+  cursor: pointer;
+  color: white;
+  border: solid white 1px;
+  border-radius: 0;
+  background-color: #595959;
+  font-size: 18pt;
+}
+
+button:hover {
+  background-color: #747474;
+}
+
+input {
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 5px white;
+          box-shadow: 0 0 5px white;
+  border: solid white 1px;
+  color: white;
+  background-color: #424f6f;
+  width: 100%;
+  font-size: 16pt;
+  font-family: 'Source Sans Pro', sans-serif;
+  padding-left: 10px;
+}
+
+/**
+    App
+*/
+.menu {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 200px;
+  background-color: #351214;
+  border: solid 1px white;
+  border-radius: 0px 5px 5px 5px;
+  padding: 5px;
+  -webkit-box-shadow: black 5px 5px 10px;
+          box-shadow: black 5px 5px 10px;
+}
+
+.menu .title {
+  font-family: 15pt;
+  font-weight: bold;
+}
+
+.menu button {
+  background-color: #771219;
+  border-bottom: none;
+}
+
+@media (min-width: 500px) {
+  .menu button {
+    font-size: 15pt;
+  }
+}
+
+@media (max-width: 499px) {
+  .menu button {
+    font-size: 30pt;
+  }
+}
+
+.menu button:hover {
+  background-color: #8a121a;
+}
+
+.menu button:last-child {
+  border-bottom: solid white 1px;
+}
+
+.app {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+@media (min-width: 500px) {
+  .app {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.app .reset {
+  display: none;
+  z-index: 10;
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  height: 50px;
+  font-size: 20pt;
+  background-color: #771219;
+}
+
+.app .copy {
+  text-align: center;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.container .col {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  min-width: 8.33333%;
+}
+
+.container .col-1 {
+  width: 8.33333%;
+}
+
+.container .col-2 {
+  width: 16.66667%;
+}
+
+.container .col-3 {
+  width: 25%;
+}
+
+.container .col-4 {
+  width: 33.33333%;
+}
+
+.container .col-5 {
+  width: 41.66667%;
+}
+
+.container .col-6 {
+  width: 50%;
+}
+
+.container .col-7 {
+  width: 58.33333%;
+}
+
+.container .col-8 {
+  width: 66.66667%;
+}
+
+.container .col-9 {
+  width: 75%;
+}
+
+.container .col-10 {
+  width: 83.33333%;
+}
+
+.container .col-11 {
+  width: 91.66667%;
+}
+
+.container .col-12 {
+  width: 100%;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.459);
+  z-index: 20;
+}
+
+.modal.active {
+  display: block;
+}
+
+.modal .modal-head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modal .modal-head .close {
+  cursor: pointer;
+  position: absolute;
+  font-size: 30pt;
+  font-weight: bold;
+}
+
+@media (min-width: 500px) {
+  .modal .modal-head .close {
+    right: 120px;
+  }
+}
+
+@media (max-width: 499px) {
+  .modal .modal-head .close {
+    right: 5px;
+    top: 5px;
+  }
+}
+
+.modal .modal-content {
+  background-color: #354059;
+  padding: 10px;
+  border-radius: white solid 1px;
+  overflow: auto;
+}
+
+@media (min-width: 500px) {
+  .modal .modal-content {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 499px) {
+  .modal .modal-content {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+.modal .modal-head, .modal .modal-body {
+  border-bottom: solid 1px white;
+}
+
+.modal .modal-body, .modal .modal-foot {
+  padding-top: 15px;
+}
+
+.form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.form-group input {
+  border-radius: 5px 0px 0px 5px;
+}
+
+.form-group button {
+  border-radius: 0px 5px 5px 0px;
+  border-left: none;
+}
+
+/**
+    Adventskalender
+*/
+.ave {
+  border: solid white 1px;
+}
+
+.ave .ave-item {
+  background-color: transparent;
+  height: 100px;
+  width: 100px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 26pt;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  /* Remove this if you don't want the 3D effect */
+}
+
+.ave .ave-item.opened .inner {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.ave .ave-item .inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  -webkit-transition: -webkit-transform 0.8s;
+  transition: -webkit-transform 0.8s;
+  transition: transform 0.8s;
+  transition: transform 0.8s, -webkit-transform 0.8s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.ave .ave-item .inner .front, .ave .ave-item .inner .back {
+  text-align: center;
+  line-height: 100px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  /* Safari */
+  backface-visibility: hidden;
+}
+
+.ave .ave-item .inner .front {
+  line-height: 120px;
+  -webkit-box-shadow: #771219 0 0 10px;
+          box-shadow: #771219 0 0 10px;
+  font-size: 70pt;
+  font-family: 'CandyTime', sans-serif;
+  background-color: #771219;
+  color: white;
+  text-shadow: white 0 0 5px;
+}
+
+.ave .ave-item .inner .front:hover, .ave .ave-item .inner .front:active {
+  -webkit-box-shadow: #991a23 0 0 10px;
+          box-shadow: #991a23 0 0 10px;
+  background-color: #991a23;
+}
+
+.ave .ave-item .inner .back {
+  -webkit-box-shadow: #d06060 0 0 10px;
+          box-shadow: #d06060 0 0 10px;
+  background-color: #d06060;
+  color: white;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.ave .ave-item .inner .back img {
+  width: 100%;
+}
+/*# sourceMappingURL=index.css.map */

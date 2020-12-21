@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventskalender</title>
+    <link href="/lib/index.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="app">
+        <h1>Adventskalender</h1>
+        <button class="reset">
+            Reset
+        </button>
+        <hr />
+        <h2>Wähle </h2>
+        <div class="container ave">
+        </div>
+        <hr/>
+        <h2>Konfigurator</h2>
+        <h3>Tag auswählen</h3>
+        <input type="number" min="1" max="24" id="current_date">
+        <h3>Türchen</h3>
+        <p>Türen können über Rechtsklick oder über Touch lange draufklicken editiert werden!</p>
+        <hr />
+        <p class="copy"><span class="cur_date"></span> &copy; Copyrights by [... hier Name]</p>
+    </div>
+    <div class="modal active">
+        <div class="modal-content">
+            <div class="modal-head">
+                <h1>Türchen <span class="door-id"></span> bearbeiten</h1>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h3>Bild hochladen</h3>
+                <div class="form-group">
+                    <input type="file" name="image" class="file-upload" accept='image/*'/>
+                    <button class="file-upload-btn">Upload</button>
+                </div>
+                <hr>
+            </div>
+            <div class="modal-foot">
+            </div>
+        </div>
+    </div>
+    <script src="./lib/index.js"></script>
+    <script>
+        const Adventskalender = new AdventsKalender();
+        let cur_date = document.getElementsByClassName("cur_date");
+        for (let i = 0; i < cur_date.length; i++) {
+            const e = cur_date[i];
+            e.innerText = (new Date()).getFullYear();
+        }
+        let m = document.getElementsByClassName("modal")[0];
+        const modal = new Modal(m);
+    </script>
+</body>
+</html>
+
+<!--
+<div class="row">
+    <div class="col ave-item">
+        Tür <span>1</span>
+    </div>
+</div>
+-->

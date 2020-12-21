@@ -1,0 +1,298 @@
+@import url('/lib/fonts/SourceSansPro-Regular.ttf');
+
+@font-face {
+    font-family: 'Nemo Nightmares';
+    src: url('/lib/fonts/nemo-nightmares.regular.ttf');
+}
+@font-face {
+    font-family: 'CandyTime';
+    src: url('/lib/fonts/CandyTime.ttf');
+}
+
+/**
+    Regular Konfig
+*/
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: rgb(53, 64, 89);
+    color: #fff;
+    overflow: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: normal;
+}
+
+button{
+    cursor: pointer;
+    color: white;
+    border: solid white 1px;
+    border-radius: 0;
+    &:hover{
+        background-color: rgb(116, 116, 116);
+    }
+    background-color: rgb(89, 89, 89);
+    font-size: 18pt;
+}
+
+input {
+    border-radius: 3px;
+    box-shadow: 0 0 5px white;
+    border: solid white 1px;
+    color: white;
+    background-color: rgb(66, 79, 111);
+    width: 100%;
+    font-size: 16pt;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding-left: 10px;
+}
+
+/**
+    App
+*/
+
+
+.menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    background-color: rgb(53, 18, 20);
+    border: solid 1px white;
+    border-radius: 0px 5px 5px 5px;
+    padding: 5px;
+    box-shadow: black 5px 5px 10px;
+    .title {
+        font-family: 15pt;
+        font-weight: bold;
+    }
+    button {
+        @media (min-width: 500px) {
+            font-size: 15pt;
+        }
+        @media (max-width: 500px - 1px) {
+            font-size: 30pt;
+        }
+        background-color: #771219;
+        &:hover{
+            background-color: #8a121a;
+        }
+        border-bottom: none;
+
+        &:last-child{
+            border-bottom: solid white 1px;
+        }
+    }
+}
+
+.app {
+    height: 100vh;
+    overflow-y: auto;
+    @media (min-width: 500px) {
+        padding-left: 20px;
+        padding-right: 20px;   
+    }
+    .reset {
+        display: none;
+        z-index: 10;
+        position: fixed;
+        top: 5px;
+        right: 5px;
+        height: 50px;
+        font-size: 20pt;
+        background-color: #771219;
+    }
+    .copy {
+        text-align: center;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+
+    .row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    $colSize: 100% / 12;
+    .col {
+        flex-grow: 1;
+        min-width: $colSize;
+    }
+    .col-1 {
+        width: $colSize;
+    }
+    .col-2 {
+        width: $colSize * 2;
+    }
+    .col-3 {
+        width: $colSize * 3;
+    }
+    .col-4 {
+        width: $colSize * 4;
+    }
+    .col-5 {
+        width: $colSize * 5;
+    }
+    .col-6 {
+        width: $colSize * 6;
+    }
+    .col-7 {
+        width: $colSize * 7;
+    }
+    .col-8 {
+        width: $colSize * 8;
+    }
+    .col-9 {
+        width: $colSize * 9;
+    }
+    .col-10 {
+        width: $colSize * 10;
+    }
+    .col-11 {
+        width: $colSize * 11;
+    }
+    .col-12 {
+        width: $colSize * 12;
+    }
+}
+
+.modal {
+    display: none;
+    &.active {
+        display: block;
+    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.459);
+    z-index: 20;
+
+    .modal-head{
+        display: flex;
+        .close {
+            cursor: pointer;
+            position: absolute;
+            @media (min-width: 500px) {
+                right: 120px;
+            }
+            @media (max-width: 500px - 1px) {
+                right: 5px;
+                top: 5px;
+            }
+            font-size: 30pt;
+            font-weight: bold;
+        }
+    }
+
+    .modal-content{
+        background-color: rgb(53, 64, 89);
+        @media (min-width: 500px) {
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
+        @media (max-width: 500px - 1px) {
+            width: 100vw;
+            height: 100vh
+        }
+        padding: 10px;
+        border-radius: white solid 1px;
+        overflow: auto;
+    }
+
+    .modal-head, .modal-body {
+        border-bottom: solid 1px white;
+    }
+
+    .modal-body, .modal-foot {
+        padding-top: 15px;
+    }
+}
+
+
+.form-group{
+    display: flex;
+    flex-direction: row;
+    input {
+        border-radius: 5px 0px 0px 5px;
+    }
+    button{
+        border-radius: 0px 5px 5px 0px;
+        border-left: none;
+    }
+}
+
+/**
+    Adventskalender
+*/
+
+.ave {
+    border: solid white 1px;
+    .ave-item {
+        background-color: transparent;
+        height: 100px;
+        width: 100px;
+        margin: 5px;
+        cursor: pointer;
+        font-size: 26pt;
+        perspective: 1000px; /* Remove this if you don't want the 3D effect */
+
+        &.opened{
+            .inner {
+                transform: rotateY(180deg);
+            }
+        }
+
+        .inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+
+            .front, .back{
+                text-align: center;
+                line-height: 100px;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                -webkit-backface-visibility: hidden; /* Safari */
+                backface-visibility: hidden;
+            }
+            $blur: 10px;
+            .front {
+                &:hover,&:active{
+                    $front_color: #991a23;
+                    box-shadow: $front_color 0 0 $blur;
+                    background-color: $front_color;
+                }
+                $front_color: #771219;
+                line-height: 120px;
+                box-shadow: $front_color 0 0 $blur;
+                font-size: 70pt;
+                font-family: 'CandyTime', sans-serif;
+                background-color: $front_color;
+                color: rgb(255, 255, 255);
+                text-shadow: white 0 0 5px;
+            }
+            .back {
+                $back_color: rgb(208, 96, 96); 
+                box-shadow: $back_color 0 0 $blur;
+                background-color: $back_color;
+                color: white;
+                transform: rotateY(180deg);
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
