@@ -7,26 +7,29 @@
 </head>
 <body>
     <div class="app">
-        <h1>Adventskalender</h1>
+        <h1>Adventskalender <span id="debug"></span></h1>
         <button class="reset">
             Reset
         </button>
         <hr />
-        <h2>Wähle </h2>
+        <h2>Türchen</h2>
         <div class="container ave">
         </div>
         <hr/>
-        <h2>Konfigurator</h2>
-        <h3>Tag auswählen</h3>
-        <div class="form-group">
-            <input type="number" min="1" max="24" id="current_date">
-            <button id="current_today">Heute</button>
+        <div class="config">
+            <h2>Konfigurator</h2>
+            <h3>Tag auswählen</h3>
+            <div class="form-group">
+                <input type="number" min="1" max="24" id="current_date">
+                <button id="current_today" onclick="Adventskalender.setDay((new Date()).getDate())">Heute</button>
+            </div>
+            <h3>Türchen</h3>
+            <p>Türen können über das "Kontextmenü" bearbeitet werden. </p>
+            <p>Dekstop: Rechte Maustaste auf ein Kästchen und dann auf "Bearbeiten" drücken.</p>
+            <p>Handy: Lange mit dem Finger auf ein Türchen drücken, dann auf Bearbeiten.</p>
         </div>
-        <h3>Türchen</h3>
-        <p>Türen können über das "Kontextmenü" bearbeitet werden. </p>
-        <p>Dekstop: Rechte Maustaste auf ein Kästchen und dann auf "Bearbeiten" drücken.</p>
-        <p>Handy: Lange mit dem Finger auf ein Türchen drücken, dann auf Bearbeiten.</p>
         <hr />
+
         <p class="copy"><span class="cur_date"></span> &copy; Copyrights by [... hier Name]</p>
     </div>
     <div class="modal">
@@ -47,7 +50,11 @@
             </div>
         </div>
     </div>
+    <div class="snow">
+        <canvas id="snow"></canvas>
+    </div>
     <script src="./lib/index.js"></script>
+    <script src="./lib/snow.js"></script>
     <script>
         const Adventskalender = new AdventsKalender();
         let cur_date = document.getElementsByClassName("cur_date");
@@ -57,6 +64,8 @@
         }
         let m = document.getElementsByClassName("modal")[0];
         const modal = new Modal(m);
+
+        const snow = new Snow();
     </script>
 </body>
 </html>
