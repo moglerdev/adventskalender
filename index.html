@@ -18,9 +18,14 @@
         <hr/>
         <h2>Konfigurator</h2>
         <h3>Tag auswählen</h3>
-        <input type="number" min="1" max="24" id="current_date">
+        <div class="form-group">
+            <input type="number" min="1" max="24" id="current_date">
+            <button id="current_today">Heute</button>
+        </div>
         <h3>Türchen</h3>
-        <p>Türen können über Rechtsklick oder über Touch lange draufklicken editiert werden!</p>
+        <p>Türen können über das "Kontextmenü" bearbeitet werden. </p>
+        <p>Dekstop: Rechte Maustaste auf ein Kästchen und dann auf "Bearbeiten" drücken.</p>
+        <p>Handy: Lange mit dem Finger auf ein Türchen drücken, dann auf Bearbeiten.</p>
         <hr />
         <p class="copy"><span class="cur_date"></span> &copy; Copyrights by [... hier Name]</p>
     </div>
@@ -31,7 +36,7 @@
                 <span class="close">&times;</span>
             </div>
             <div class="modal-body">
-                <h3>Bild hochladen</h3>
+                <h3>Bild hochladen <small>(max. 100 mb)</small></h3>
                 <div class="form-group">
                     <input type="file" name="image" class="file-upload" accept='image/*'/>
                     <button class="file-upload-btn">Upload</button>
