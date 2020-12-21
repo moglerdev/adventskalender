@@ -135,16 +135,6 @@ input {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-.container .row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
@@ -153,55 +143,6 @@ input {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  min-width: 8.33333%;
-}
-
-.container .col-1 {
-  width: 8.33333%;
-}
-
-.container .col-2 {
-  width: 16.66667%;
-}
-
-.container .col-3 {
-  width: 25%;
-}
-
-.container .col-4 {
-  width: 33.33333%;
-}
-
-.container .col-5 {
-  width: 41.66667%;
-}
-
-.container .col-6 {
-  width: 50%;
-}
-
-.container .col-7 {
-  width: 58.33333%;
-}
-
-.container .col-8 {
-  width: 66.66667%;
-}
-
-.container .col-9 {
-  width: 75%;
-}
-
-.container .col-10 {
-  width: 83.33333%;
-}
-
-.container .col-11 {
-  width: 91.66667%;
-}
-
-.container .col-12 {
-  width: 100%;
 }
 
 .modal {
@@ -302,11 +243,19 @@ input {
   border: solid white 1px;
 }
 
+@media (min-width: 500px) {
+  .ave {
+    max-height: 100vh;
+    overflow-x: auto;
+  }
+}
+
 .ave .ave-item {
   background-color: transparent;
-  height: 100px;
-  width: 100px;
-  margin: 5px;
+  min-height: 180px;
+  width: auto;
+  min-width: 240px;
+  padding: 5px;
   cursor: pointer;
   font-size: 26pt;
   -webkit-perspective: 1000px;
@@ -315,6 +264,7 @@ input {
 }
 
 .ave .ave-item.opened .inner {
+  width: 100%;
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }
@@ -371,5 +321,6 @@ input {
 
 .ave .ave-item .inner .back img {
   width: 100%;
+  height: 100%;
 }
 /*# sourceMappingURL=index.css.map */
