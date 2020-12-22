@@ -84,7 +84,11 @@ input {
 }
 
 .app {
-    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     overflow-y: auto;
     @media (min-width: 500px) {
         padding-left: 20px;
