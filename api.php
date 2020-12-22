@@ -171,7 +171,7 @@ function extractFile($id){
     }
     $full_name = $path.$name;
     if (!move_uploaded_file($tmp_name, $full_name)){
-        return [false, "File can't copy to tmp-Directory!"];
+        return [false, "File can't copy to img-Directory!"];
 
     }
 
