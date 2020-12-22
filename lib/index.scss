@@ -3,10 +3,6 @@
     src: url('./fonts/SourceSansPro-Regular.ttf');
 }
 @font-face {
-    font-family: 'Nemo Nightmares';
-    src: url('./fonts/nemo-nightmares.regular.ttf');
-}
-@font-face {
     font-family: 'CandyTime';
     src: url('./fonts/CandyTime.ttf');
 }
@@ -119,6 +115,7 @@ input {
 }
 
 .modal {
+    overflow-y: auto;
     display: none;
     &.active {
         display: block;
@@ -160,6 +157,7 @@ input {
             width: 100vw;
             height: 100vh
         }
+        margin-bottom: 20px;
         padding: 10px;
         border-radius: white solid 1px;
         overflow: auto;
@@ -285,6 +283,20 @@ input {
     z-index: 20;
 }
 
-.pictures {
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
 
+    .gallery-item{
+        padding: 5px;
+        img {
+            border: solid 2px transparent;
+            &:hover{
+                cursor: pointer;
+                border: solid 2px white;
+            }
+            width: 200px;
+        }
+    }
 }

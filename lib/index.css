@@ -4,11 +4,6 @@
 }
 
 @font-face {
-  font-family: 'Nemo Nightmares';
-  src: url("./fonts/nemo-nightmares.regular.ttf");
-}
-
-@font-face {
   font-family: 'CandyTime';
   src: url("./fonts/CandyTime.ttf");
 }
@@ -150,6 +145,7 @@ input {
 }
 
 .modal {
+  overflow-y: auto;
   display: none;
   position: fixed;
   top: 0;
@@ -187,6 +183,7 @@ input {
 
 .modal .modal-content {
   background-color: #354059;
+  margin-bottom: 20px;
   padding: 10px;
   border-radius: white solid 1px;
   overflow: auto;
@@ -342,5 +339,28 @@ input {
   right: 0;
   bottom: 0;
   z-index: 20;
+}
+
+.gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.gallery .gallery-item {
+  padding: 5px;
+}
+
+.gallery .gallery-item img {
+  border: solid 2px transparent;
+  width: 200px;
+}
+
+.gallery .gallery-item img:hover {
+  cursor: pointer;
+  border: solid 2px white;
 }
 /*# sourceMappingURL=index.css.map */
