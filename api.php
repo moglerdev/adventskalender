@@ -169,13 +169,14 @@ function extractFile($id){
     if(!file_exists($path)){
         mkdir($path, 0777);
     }
-    $full_name = $path.$name;
+    $new_name = microtime(true).".".$name;
+    $full_name = $path.$new_name;
     if (!move_uploaded_file($tmp_name, $full_name)){
         return [false, "File can't copy to img-Directory!"];
 
     }
 
-    overwrite($name, $id);
+    overwrite($new_name, $id);
 
     return [true, $tmp_name."|".$dir_path.$id.".".$ext];
 }
