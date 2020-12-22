@@ -22,11 +22,8 @@ function evalControl($control, $method)
 function door($method){
     $id = $_GET["id"];
     if ($method == "upload"){
-        $filename = null;
         if(isset($_GET['filename'])) {
-            $filename = $_GET['filename'];
-        }
-        if($filename){
+            $filename = base64_decode($_GET['filename']);
             select_file($filename, $id); 
         }
         else{
@@ -47,16 +44,19 @@ function images($method){
     if ($method == "all"){
         get_uploaded_files();
     }
-    $filename = $_GET["filename"];
+    $filename = null;
+    if(isset($_GET['filename'])) {
+        $filename = base64_decode($_GET['filename']);
+        if ($method == "get"){
+            get_uploaded_file($filename);
+            return 1;
+        }
+        elseif ($method == "delete"){
+            delete_uploaded_file($filename);
+            return 1;
+        }
+    }
     
-    if ($method == "get"){
-        get_uploaded_file($filename);
-        return 1;
-    }
-    elseif ($method == "delete"){
-        delete_uploaded_file($filename);
-        return 1;
-    }
     return 0;
 }
 
@@ -94,19 +94,30 @@ function get_uploaded_file($name){
 }
 
 function select_file($name, $id){
+    overwrite($name, $id);
+
+    response(202, ["code" => 202, "message" => "File changed!", "success" => true]);  
+    exit;
+}
+
+function overwrite($name, $id){
     $dir_path = dirname(__FILE__)."/doors/";
     $path = $dir_path."imgs/";
-
+    foreach (new DirectoryIterator($dir_path) as $file) {
+        if($file->isDot()) continue;
+        if(strpos($file->getFilename(), $id.".") !== false){
+            $n = $dir_path.$file->getFilename();
+            unlink($n);
+        }
+    }
+    $path = $dir_path."imgs/";
     $full_name = $path.$name;
     if(!file_exists($full_name)){
-        response(404, ["code" => 404, "message" => "File not found!", "success" => false]);
+        response(404, ["code" => 404, "message" => "File not found! | ".$full_name, "success" => false]);
         exit; 
     }
     $ext = pathinfo($name, PATHINFO_EXTENSION);
-
-    copy($path.$name, $dir_path.$id.".".$ext);
-    response(202, ["code" => 202, "message" => "File changed!", "success" => true]);  
-    exit;
+    copy($full_name, $dir_path.$id.".".$ext);
 }
 
 function delete_uploaded_file($name){
@@ -126,6 +137,9 @@ function delete_uploaded_file($name){
 }
 
 function extractFile($id){
+    if(!isset($_FILES["image"])){
+        return [false, "Error!"];
+    }
     $file_b = $_FILES["image"];
 
     $name = $file_b["name"];
@@ -154,10 +168,13 @@ function extractFile($id){
     if(!file_exists($path)){
         mkdir($path, 0777);
     }
-    $full_path = $path.$name;
-    move_uploaded_file($tmp_name, $path.$name);
+    $full_name = $path.$name;
+    if (!move_uploaded_file($tmp_name, $full_name)){
+        return [false, "File can't copy to tmp-Directory!"];
 
-    copy($path.$name, $dir_path.$id.".".$ext);
+    }
+
+    overwrite($name, $id);
 
     return [true, $tmp_name."|".$dir_path.$id.".".$ext];
 }
