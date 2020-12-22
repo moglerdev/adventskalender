@@ -3,8 +3,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adventskalender</title>
-    <link href="./lib/index.css" rel="stylesheet" />
     <link href="./lib/all.min.css" rel="stylesheet" />
+    <link href="./lib/index.css" rel="stylesheet" />
+    <link href="./lib/alerts.css" rel="stylesheet" />
 </head>
 <body>
     <div class="app">
@@ -68,9 +69,15 @@
     <div class="snow">
         <canvas id="snow"></canvas>
     </div>
+    <div class="alert-list" id="alerts">
+
+    </div>
     <script type="module">
-        import { Snow, Soundboard } from './lib/snow.js?t=23423424234234234'
-        import { AdventsKalender, Modal } from './lib/index.js?t=234234234342423'
+        import { Snow, Soundboard } from './lib/snow.js'
+        import { AdventsKalender, Modal } from './lib/index.js'
+        import AlertManager, { Alert } from './lib/alerts.js'
+
+        AlertManager.init(document.getElementById("alerts"))
 
         const adventskalender = new AdventsKalender(24);
 

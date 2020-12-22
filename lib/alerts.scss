@@ -1,0 +1,56 @@
+
+.alert-list{
+    pointer-events: none;
+    position: fixed;
+    z-index: 100;
+    top: 0; bottom: 0; right: 20px;
+    width: 400px;
+
+    display: flex;
+    flex-direction: column;
+
+    .alert {
+        pointer-events: all;
+        $info: rgb(53, 128, 108);
+        $warning: rgb(150, 151, 70);
+        $error: rgb(145, 67, 67);
+        $success: rgb(47, 130, 50);
+        &.info{
+            background-color: $info;
+        }
+        &.warning{
+            background-color: $warning;
+        }
+        &.error{
+            background-color: $error;
+        }
+        &.success{
+            background-color: $success;
+        }
+
+        display: flex;
+        flex-direction: column;
+        margin: 5px;
+
+        .alert-head{
+            margin-left: 20px;
+            padding: 5px;
+            margin-bottom: -30px;
+            .alert-title {
+                font-size: 16pt;
+                display: inline-block;
+            }
+            .alert-close {
+                cursor: pointer;
+                font-size: 27pt;
+                float: right;
+                margin-top: 0;
+                margin-right: 10px;
+            }
+        }
+        .alert-message {
+            margin-left: 20px;
+            padding: 5px;
+        }
+    }
+}

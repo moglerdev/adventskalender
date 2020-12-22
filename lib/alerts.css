@@ -1,0 +1,69 @@
+.alert-list {
+  pointer-events: none;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  bottom: 0;
+  right: 20px;
+  width: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.alert-list .alert {
+  pointer-events: all;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 5px;
+}
+
+.alert-list .alert.info {
+  background-color: #35806c;
+}
+
+.alert-list .alert.warning {
+  background-color: #969746;
+}
+
+.alert-list .alert.error {
+  background-color: #914343;
+}
+
+.alert-list .alert.success {
+  background-color: #2f8232;
+}
+
+.alert-list .alert .alert-head {
+  margin-left: 20px;
+  padding: 5px;
+  margin-bottom: -30px;
+}
+
+.alert-list .alert .alert-head .alert-title {
+  font-size: 16pt;
+  display: inline-block;
+}
+
+.alert-list .alert .alert-head .alert-close {
+  cursor: pointer;
+  font-size: 27pt;
+  float: right;
+  margin-top: 0;
+  margin-right: 10px;
+}
+
+.alert-list .alert .alert-message {
+  margin-left: 20px;
+  padding: 5px;
+}
+/*# sourceMappingURL=alerts.css.map */
