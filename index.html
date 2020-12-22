@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adventskalender</title>
     <link href="./lib/index.css" rel="stylesheet" />
+    <link href="./lib/all.min.css" rel="stylesheet" />
 </head>
 <body>
     <div class="app">
@@ -27,7 +28,7 @@
             <h3>Tag auswählen</h3>
             <div class="form-group">
                 <input type="number" min="1" max="24" id="current_date">
-                <button id="current_today" onclick="Adventskalender.setDay((new Date()).getDate())">Heute</button>
+                <button id="btn_current_today">Heute</button>
             </div>
             <h3>Türchen</h3>
             <p>Türen können über das "Kontextmenü" bearbeitet werden. </p>
@@ -51,7 +52,9 @@
                 </div>
                 <hr>
                 <h3>Aktuelles Bild</h3>
-                <img class="current-picture" id="modal_pic" />
+                <div class="current-picture">
+                    <img id="modal_pic" />
+                </div>
                 <hr>
                 <h3>Bilder auswählen</h3>
                 <div class="gallery" id="gallery">
@@ -66,11 +69,13 @@
         <canvas id="snow"></canvas>
     </div>
     <script type="module">
-        import { Snow, Soundboard } from './lib/snow.js'
-        import { AdventsKalender, Modal } from './lib/index.js'
+        import { Snow, Soundboard } from './lib/snow.js?t=23423424234234234'
+        import { AdventsKalender, Modal } from './lib/index.js?t=234234234342423'
 
-        const Adventskalender = new AdventsKalender();
+        const adventskalender = new AdventsKalender(24);
 
+        let cur_day_btn = document.getElementById("btn_current_today");
+        cur_day_btn.onclick = () => adventskalender.setDay((new Date().getDate()));
         let cur_date = document.getElementsByClassName("cur_date");
         for (let i = 0; i < cur_date.length; i++) {
             const e = cur_date[i];
