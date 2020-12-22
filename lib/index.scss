@@ -1,5 +1,7 @@
-@import url('./fonts/SourceSansPro-Regular.ttf');
-
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('./fonts/SourceSansPro-Regular.ttf');
+}
 @font-face {
     font-family: 'Nemo Nightmares';
     src: url('./fonts/nemo-nightmares.regular.ttf');
@@ -130,10 +132,10 @@ input {
     z-index: 20;
 
     .modal-head{
-        display: flex;
         .close {
             cursor: pointer;
-            position: absolute;
+            float: right;
+            margin-top: -80px;
             @media (min-width: 500px) {
                 right: 120px;
             }
