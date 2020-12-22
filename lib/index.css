@@ -233,11 +233,18 @@ input {
   padding-top: 15px;
 }
 
+.modal .current-picture {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 @media (min-width: 500px) {
   .modal .current-picture {
-    width: 400px;
-    margin-right: auto;
-    margin-left: auto;
+    height: 500px;
   }
 }
 
@@ -247,8 +254,16 @@ input {
   }
 }
 
-.modal .current-picture img {
-  width: 100%;
+@media (min-width: 500px) {
+  .modal .current-picture img {
+    height: 100%;
+  }
+}
+
+@media (max-width: 499px) {
+  .modal .current-picture img {
+    width: 100%;
+  }
 }
 
 .form-group {

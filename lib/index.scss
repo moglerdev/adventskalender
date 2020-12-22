@@ -188,16 +188,21 @@ input {
     }
 
     .current-picture {
+        justify-content: center;
+        display: flex;
         @media (min-width: 500px) {
-            width: 400px;
-            margin-right: auto;
-            margin-left: auto;
+            height: 500px;
         }
         @media (max-width: 500px - 1px) {
             width: 100%;
         }
         img {
-            width: 100%
+            @media (min-width: 500px) {
+                height: 100%;
+            }
+            @media (max-width: 500px - 1px) {
+                width: 100%;
+            }
         }
     }
 }
