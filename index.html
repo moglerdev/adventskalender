@@ -46,8 +46,8 @@
             <div class="modal-body">
                 <h3>Bild hochladen <small>(max. 100 mb)</small></h3>
                 <div class="form-group">
-                    <input type="file" name="image" class="file-upload" accept='image/*'/>
-                    <button class="file-upload-btn">Upload</button>
+                    <input id="upload_input" type="file" name="image" class="file-upload" accept='image/*'/>
+                    <button id="upload_btn" class="file-upload-btn">Upload</button>
                 </div>
                 <hr>
                 <h3>Aktuelles Bild</h3>
@@ -67,7 +67,7 @@
     </div>
     <script type="module">
         import { Snow, Soundboard } from './lib/snow.js'
-        import { AdventsKalender } from './lib/index.js'
+        import { AdventsKalender, Modal } from './lib/index.js'
 
         const Adventskalender = new AdventsKalender();
 
@@ -77,8 +77,9 @@
             e.innerText = (new Date()).getFullYear();
         }
         let m = document.getElementsByClassName("modal")[0];
-        
-        const modal = new Modal(m);
+        let upload_input = document.getElementById("upload_input");
+        let upload_btn = document.getElementById("upload_btn");
+        const modal = new Modal(m, upload_input, upload_btn);
 
         const snow = new Snow();
         const soundboard = new Soundboard();
