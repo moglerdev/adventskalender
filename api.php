@@ -22,7 +22,10 @@ function evalControl($control, $method)
 function door($method){
     $id = $_GET["id"];
     if ($method == "upload"){
-        $filename = $_GET["filename"];
+        $filename = null;
+        if(isset($_GET['filename'])) {
+            $filename = $_GET['filename'];
+        }
         if($filename){
             select_file($filename, $id); 
         }
@@ -206,18 +209,34 @@ function download($id){
     exit;
 }
 
+
+$dir_path = dirname(__FILE__)."/doors/";
+if(!file_exists($dir_path)){
+    mkdir($dir_path, 0777);
+}
+
+$dir_path = dirname(__FILE__)."/doors/imgs/";
+if(!file_exists($dir_path)){
+    mkdir($dir_path, 0777);
+}
+
+
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Credentials: true");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type");
-
-$t = explode("/", $_SERVER['REQUEST_URI']);
-$cnt = count($t);
-$c = $cnt - 1;
-$control = $t[$cnt - 2];
-$meth = $t[$cnt - 1];
-$method = explode("?", $meth)[0];
-
-evalControl($control, $method);
+try{
+    $t = explode("/", $_SERVER['REQUEST_URI']);
+    $cnt = count($t);
+    $c = $cnt - 1;
+    $control = $t[$cnt - 2];
+    $meth = $t[$cnt - 1];
+    $method = explode("?", $meth)[0];
+    
+    evalControl($control, $method);
+} catch (Exception $th) {
+    response(500, ["code" => 500, "message" => "Fatal Error!", "exception" => $th->getMessage(), "success" => false]);
+    exit;
+}
 
 ?>
