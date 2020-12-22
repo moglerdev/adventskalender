@@ -18,6 +18,12 @@
         <hr/>
         <div class="config">
             <h2>Konfigurator</h2>
+            <h3>Oberfläche</h3>
+            <div>
+                <button id="snow_btn" >Schnee deaktiviern</button>
+                <button id="sound_btn">Musik deaktivieren</button>
+            </div>
+            <hr />
             <h3>Tag auswählen</h3>
             <div class="form-group">
                 <input type="number" min="1" max="24" id="current_date">
@@ -59,9 +65,10 @@
     <div class="snow">
         <canvas id="snow"></canvas>
     </div>
-    <script src="./lib/index.js"></script>
-    <script src="./lib/snow.js"></script>
-    <script>
+    <script type="module">
+        import { Snow, Soundboard } from './lib/snow.js'
+        import { AdventsKalender } from './lib/index.js'
+
         const Adventskalender = new AdventsKalender();
 
         let cur_date = document.getElementsByClassName("cur_date");
@@ -73,7 +80,17 @@
         
         const modal = new Modal(m);
 
-        //const snow = new Snow();
+        const snow = new Snow();
+        const soundboard = new Soundboard();
+
+        let snow_btn = document.getElementById("snow_btn");
+        let sound_btn = document.getElementById("sound_btn");
+
+        snow_btn.onclick = () => snow.toggle(snow_btn);
+        sound_btn.onclick = () => soundboard.toggle(sound_btn);
+
+        snow_btn.innerText = "Schnee " + (snow.active ? "deaktiviern" : "aktivieren");
+        sound_btn.innerText = "Musik " + (soundboard.active ? "deaktiviern" : "aktivieren");
     </script>
 </body>
 </html>
