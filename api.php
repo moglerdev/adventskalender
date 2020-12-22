@@ -103,10 +103,12 @@ function select_file($name, $id){
 function overwrite($name, $id){
     $dir_path = dirname(__FILE__)."/doors/";
     $path = $dir_path."imgs/";
+    $ext = pathinfo($name, PATHINFO_EXTENSION);
     foreach (new DirectoryIterator($dir_path) as $file) {
         if($file->isDot()) continue;
-        if(strpos($file->getFilename(), $id.".") !== false){
-            $n = $dir_path.$file->getFilename();
+        $fn = $file->getFilename();
+        if($fn == $id.".".$file->getExtension()){
+            $n = $dir_path.$fn;
             unlink($n);
         }
     }
@@ -116,7 +118,6 @@ function overwrite($name, $id){
         response(404, ["code" => 404, "message" => "File not found! | ".$full_name, "success" => false]);
         exit; 
     }
-    $ext = pathinfo($name, PATHINFO_EXTENSION);
     copy($full_name, $dir_path.$id.".".$ext);
 }
 
@@ -206,8 +207,9 @@ function download($id){
     
     foreach (new DirectoryIterator($dir_path) as $file) {
         if($file->isDot()) continue;
-        if(strpos($file->getFilename(), $id.".") !== false){
-            $name = $dir_path.$file->getFilename();
+        $fn = $file->getFilename();
+        if($fn == $id.".".$file->getExtension()){
+            $name = $dir_path.$fn;
             break;
         }
     }
