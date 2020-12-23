@@ -1,11 +1,7 @@
 .alert-list {
   pointer-events: none;
   position: fixed;
-  z-index: 100;
-  top: 0;
-  bottom: 0;
-  right: 20px;
-  width: 400px;
+  z-index: 20;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13,6 +9,24 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+@media (min-width: 500px) {
+  .alert-list {
+    top: 0;
+    bottom: 0;
+    right: 20px;
+    width: 400px;
+  }
+}
+
+@media (max-width: 499px) {
+  .alert-list {
+    top: 0;
+    bottom: 0;
+    right: 0px;
+    width: 100%;
+  }
 }
 
 .alert-list .alert {

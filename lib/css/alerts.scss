@@ -2,9 +2,15 @@
 .alert-list{
     pointer-events: none;
     position: fixed;
-    z-index: 100;
-    top: 0; bottom: 0; right: 20px;
-    width: 400px;
+    z-index: 20;
+    @media (min-width: 500px) {
+        top: 0; bottom: 0; right: 20px;
+        width: 400px;
+    }
+    @media (max-width: 500px - 1px) {
+        top: 0; bottom: 0; right: 0px;
+        width: 100%;
+    }
 
     display: flex;
     flex-direction: column;

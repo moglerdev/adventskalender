@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'Source Sans Pro';
-  src: url("./fonts/SourceSansPro-Regular.ttf");
+  src: url("../fonts/SourceSansPro-Regular.ttf");
 }
 
 @font-face {
   font-family: 'CandyTime';
-  src: url("./fonts/CandyTime.ttf");
+  src: url("../fonts/CandyTime.ttf");
 }
 
 /**
@@ -34,6 +34,11 @@ button {
 
 button:hover {
   background-color: #5f7063;
+}
+
+button:disabled {
+  color: #919191;
+  background-color: #373737;
 }
 
 input {
@@ -413,55 +418,5 @@ input {
 
 .config {
   max-width: 800px;
-}
-
-/**
-    Snow
-*/
-.snow {
-  pointer-events: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 20;
-}
-
-.gallery {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin-bottom: 10px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.gallery .gallery-item {
-  padding: 5px;
-}
-
-.gallery .gallery-item img {
-  border: solid 2px transparent;
-}
-
-.gallery .gallery-item img:hover {
-  cursor: pointer;
-  border: solid 2px white;
-}
-
-@media (min-width: 500px) {
-  .gallery .gallery-item img {
-    width: 200px;
-  }
-}
-
-@media (max-width: 499px) {
-  .gallery .gallery-item img {
-    width: 100%;
-  }
 }
 /*# sourceMappingURL=index.css.map */
