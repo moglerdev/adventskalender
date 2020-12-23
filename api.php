@@ -127,7 +127,7 @@ function delete_uploaded_file($name){
 
     $full_name = $path.$name;
     if(!file_exists($full_name)){
-        response(404, ["code" => 404, "message" => "File not found!", "success" => false]); 
+        response(200, ["code" => 204, "message" => "File not found!", "success" => true]); 
         exit; 
     }
 
