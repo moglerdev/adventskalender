@@ -144,6 +144,15 @@ function extractFile($id){
     $file_b = $_FILES["image"];
 
     $name = $file_b["name"];
+
+    $name = str_replace("Ä", "AE", $name);
+    $name = str_replace("ä", "ae", $name);
+    $name = str_replace("Ö", "OE", $name);
+    $name = str_replace("ö", "oe", $name);
+    $name = str_replace("Ü", "UE", $name);
+    $name = str_replace("ü", "ue", $name);
+    $name = str_replace("ß", "sss", $name);
+
     if(!$name){
         return [false, "Error!"];
     }
