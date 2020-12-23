@@ -25,6 +25,7 @@
             <div>
                 <button id="snow_btn" >Schnee deaktiviern</button>
                 <button id="sound_btn">Musik deaktivieren</button>
+                <button id="reset_btn">Alle Türchen schließen</button>
             </div>
             <hr />
             <h3>Tag auswählen</h3>
@@ -87,6 +88,8 @@
         Loading.init(document.getElementById("loading"))
 
         const adventskalender = new AdventsKalender(24);
+        let reset_btn = document.getElementById("reset_btn");
+        reset_btn.onclick = () => adventskalender.reset();
 
         let cur_day_btn = document.getElementById("btn_current_today");
         cur_day_btn.onclick = () => adventskalender.setDay((new Date().getDate()));
